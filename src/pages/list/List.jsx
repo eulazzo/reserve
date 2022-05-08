@@ -1,9 +1,12 @@
-import React from 'react'
-
+import React from "react";
+import { Navbar, Header } from "../../components/index";
 const List = () => {
   return (
-    <div>List</div>
-  )
-}
+    <div>
+      <Navbar />
+      <Header />
+    </div>
+  );
+};
 
-export default List
+export default List;
