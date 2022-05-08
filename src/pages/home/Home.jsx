@@ -1,11 +1,13 @@
-import './home.css'
+import "./home.css";
+
+import { Navbar } from "../../components";
 
 const Home = () => {
   return (
     <div>
-      
+      <Navbar />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
