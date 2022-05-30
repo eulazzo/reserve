@@ -1,10 +1,14 @@
 import "./home.css";
 
-import { Header, Navbar } from "../../components";
-import Featured from "../../components/featured/Featured";
-import PropertyList from "../../components/propertyList/PropertyList";
-import FeaturedHotels from "../../components/featuredHotels/FeaturedHotels";
-import MailList from "../../components/MailList/MailList";
+import {
+  Header,
+  Navbar,
+  Featured,
+  PropertyList,
+  FeaturedHotels,
+  MailList,
+  Footer,
+} from "../../components";
 
 const Home = () => {
   return (
@@ -18,6 +22,7 @@ const Home = () => {
         <h1 className="homeTitle">Homes guests love</h1>
         <FeaturedHotels />
         <MailList />
+        <Footer />
       </div>
     </div>
   );

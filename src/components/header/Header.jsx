@@ -44,7 +44,6 @@ const Header = ({ type }) => {
       };
     });
   };
-  console.log(options);
 
   return (
     <header className="header">
