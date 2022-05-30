@@ -6,22 +6,24 @@ import {
   faCar,
   faPerson,
   faPlane,
-  faPlusSquare,
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 
 import { DateRange } from "react-date-range";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ type }) => {
   const [openDate, setOpenDate] = useState(false);
+  const destination = useRef(null);
   const [openOptions, setOpenOptions] = useState(false);
+  const navigate = useNavigate();
   const [options, setOptions] = useState({
     adult: 1,
     childreen: 0,
@@ -42,6 +44,12 @@ const Header = ({ type }) => {
         [name]:
           operation === "decrease" ? options[name] - 1 : options[name] + 1,
       };
+    });
+  };
+
+  const handleSearch = () => {
+    navigate("/hotels", {
+      state: { destination: destination.current.value, date, options },
     });
   };
 
@@ -92,6 +100,7 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Where are you going?"
                   className="headerSearchInput"
+                  ref={destination}
                 />
               </div>
               <div className="headerSearchItem">
@@ -111,6 +120,7 @@ const Header = ({ type }) => {
                     onChange={(item) => setDate([item.selection])}
                     moveRangeOnFirstSelection={false}
                     ranges={date}
+                    minDate={new Date()}
                   />
                 )}
               </div>
@@ -192,7 +202,9 @@ const Header = ({ type }) => {
                 )}
               </div>
               <div className="headerSearchItem">
-                <button className="headerBtn searchBtn">Search</button>
+                <button className="headerBtn searchBtn " onClick={handleSearch}>
+                  Search
+                </button>
               </div>
             </div>
           </>
