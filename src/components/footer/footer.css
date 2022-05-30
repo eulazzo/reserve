@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1024px;
   font-size: 12px;
-   
+  margin-bottom: 10px;
 }
 
 .fListsWrapper{
@@ -23,3 +23,5 @@
   color:#003580;
   cursor: pointer;
 }
+
+ 
