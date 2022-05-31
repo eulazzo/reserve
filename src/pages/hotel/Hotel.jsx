@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./hotel.css";
 import { Footer, Header, MailList, Navbar } from "../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +8,6 @@ import {
   faCircleXmark,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
 
 const Hotel = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
@@ -63,7 +63,11 @@ const Hotel = () => {
               icon={faCircleArrowLeft}
             />
             <slider className="sliderWrapper">
-              <img className="sliderImg" src={photos[sliderIndex].src} alt="" />
+              <img
+                className="sliderImg"
+                src={photos[sliderIndex].src}
+                alt="hotel pic"
+              />
             </slider>
             <FontAwesomeIcon
               className="arrow"
