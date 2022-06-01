@@ -2,6 +2,8 @@ import User from "../models/User.js";
 import { createError } from "../utils/error.js";
 import bcrypt from "bcryptjs";
 
+import jwt from "jsonwebtoken";
+
 export const register = async (req, res, next) => {
   const { username, password, email, phone, city, country } = req.body;
 
@@ -36,9 +38,20 @@ export const login = async (req, res, next) => {
     if (!isPasswordCorrect)
       return next(createError(400, "Username and password doesn't Match"));
 
+    const token = jwt.sign(
+      {
+        id: user._id,
+        isAdmin: user.isAdmin,
+      },
+      process.env.JWT_SECRET_TOKEN
+    );
+
     const { password, isAdmin, ...userDataWithNoPassword } = user._doc;
 
-    res.status(201).json(userDataWithNoPassword);
+    res
+      .cookie("access_token", token, { httpOnly: true })
+      .status(201)
+      .json(userDataWithNoPassword);
   } catch (error) {
     next(error);
   }
