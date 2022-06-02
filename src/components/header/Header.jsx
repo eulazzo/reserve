@@ -1,15 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
-
-import {
-  faBed,
-  faCar,
-  faPerson,
-  faPlane,
-  faTaxi,
-} from "@fortawesome/free-solid-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
-
 import { DateRange } from "react-date-range";
 import { useContext, useRef, useState } from "react";
 
@@ -19,8 +10,18 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
+import {
+  faBed,
+  faCar,
+  faPerson,
+  faPlane,
+  faTaxi,
+} from "@fortawesome/free-solid-svg-icons";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
+  const { user } = useContext(AuthContext);
+
   const [openDate, setOpenDate] = useState(false);
   const destination = useRef(null);
   const [openOptions, setOpenOptions] = useState(false);
@@ -96,7 +97,7 @@ const Header = ({ type }) => {
               Get Rewarded for your travels - unlock instant savings of 10% or
               more with a free RESERVE account
             </p>
-            <button className="headerBtn">Sign in/ Sign Up</button>
+            {!user && <button className="headerBtn">Sign in/ Sign Up</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
