@@ -11,13 +11,14 @@ import {
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 
 import { DateRange } from "react-date-range";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../../context/SearchContext";
 
 const Header = ({ type }) => {
   const [openDate, setOpenDate] = useState(false);
@@ -29,7 +30,7 @@ const Header = ({ type }) => {
     childreen: 0,
     room: 1,
   });
-  const [date, setDate] = useState([
+  const [dates, setDates] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
@@ -47,9 +48,12 @@ const Header = ({ type }) => {
     });
   };
 
+  const { dispatch } = useContext(SearchContext);
+
   const handleSearch = () => {
+    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
     navigate("/hotels", {
-      state: { destination: destination.current.value, date, options },
+      state: { destination: destination.current.value, dates, options },
     });
   };
 
@@ -109,17 +113,17 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
-                >{`${format(date[0].startDate, "mm/dd/yyyy")} to ${format(
-                  date[0].endDate,
+                >{`${format(dates[0].startDate, "mm/dd/yyyy")} to ${format(
+                  dates[0].endDate,
                   "mm/dd/yyyy"
                 )}`}</span>
                 {openDate && (
                   <DateRange
                     className="date"
                     editableDateInputs={true}
-                    onChange={(item) => setDate([item.selection])}
+                    onChange={(item) => setDates([item.selection])}
                     moveRangeOnFirstSelection={false}
-                    ranges={date}
+                    ranges={dates}
                     minDate={new Date()}
                   />
                 )}

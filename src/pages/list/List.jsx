@@ -11,9 +11,9 @@ const List = () => {
   //state passed on navigate hook on header component
   const { state } = useLocation();
 
-  const [destination, setDestination] = useState(state?.destination);
-  const [date, setDate] = useState(state?.date);
-  const [options, setOptions] = useState(state?.options);
+  const [destination] = useState(state?.destination);
+  const [dates, setDates] = useState(state?.dates);
+  const [options] = useState(state?.options);
   const [openDate, setOpenDate] = useState(false);
 
   const [min, setMin] = useState(null);
@@ -45,14 +45,14 @@ const List = () => {
             <div className="lsItem">
               <label>Check-in Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
-                date[0]?.startDate,
+                dates[0]?.startDate,
                 "MM/dd/yyyy"
-              )} to ${format(date[0]?.endDate, "MM/dd/yyyy")}`}</span>
+              )} to ${format(dates[0]?.endDate, "MM/dd/yyyy")}`}</span>
               {openDate && (
                 <DateRange
-                  onChange={(item) => setDate([item.selection])}
+                  onChange={(item) => setDates([item.selection])}
                   minDate={new Date()}
-                  ranges={date}
+                  ranges={dates}
                 />
               )}
             </div>
