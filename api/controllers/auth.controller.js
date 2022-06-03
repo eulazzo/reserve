@@ -1,23 +1,18 @@
 import User from "../models/User.js";
 import { createError } from "../utils/error.js";
 import bcrypt from "bcryptjs";
-
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res, next) => {
-  const { username, password, email, phone, city, country } = req.body;
+  const { password } = req.body;
 
   try {
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
-      username,
+      ...req.body,
       password: hashedPassword,
-      email,
-      phone,
-      city,
-      country,
     });
     await newUser.save();
     res.status(201).send("User has been created!");
