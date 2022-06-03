@@ -1,6 +1,6 @@
-import { useContext, useState } from "react";
 import "./hotel.css";
-import { Footer, Header, MailList, Navbar } from "../../components";
+import { useContext, useState } from "react";
+import { Footer, Header, MailList, Navbar, Reserve } from "../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleArrowLeft,
@@ -9,12 +9,16 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import useFetch from "../../hooks/useFetch";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const Hotel = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
   const [open, setOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const { id: hotelid } = useParams();
   const { dates, options } = useContext(SearchContext);
@@ -36,6 +40,11 @@ const Hotel = () => {
     else newSliderNumber = sliderIndex === 5 ? 0 : sliderIndex + 1;
 
     setSliderIndex(newSliderNumber);
+  };
+
+  const handleClick = () => {
+    if (user) setOpenModal(true);
+    else navigate("/login");
   };
 
   return (
@@ -128,7 +137,7 @@ const Hotel = () => {
                     <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
                     nights)
                   </h2>
-                  <button>Reserve or Book Now!</button>
+                  <button onClick={handleClick}>Reserve or Book Now!</button>
                 </div>
               </div>
             </div>
@@ -138,6 +147,7 @@ const Hotel = () => {
           </div>
         </>
       )}
+      {openModal && <Reserve setOpen={setOpen} hotelId={hotelid} />}
     </div>
   );
 };
