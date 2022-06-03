@@ -46,12 +46,12 @@ export const login = async (req, res, next) => {
       process.env.JWT_SECRET_TOKEN
     );
 
-    const { password, isAdmin, ...userDataWithNoPassword } = user._doc;
+    const { password, isAdmin, ...otherDetails } = user._doc;
 
     res
       .cookie("access_token", token, { httpOnly: true })
       .status(201)
-      .json(userDataWithNoPassword);
+      .json({ details: { ...otherDetails }, isAdmin });
   } catch (error) {
     next(error);
   }
