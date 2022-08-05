@@ -63,7 +63,7 @@
      }
      
     ``` 
-   * Output: (email,password and pseudo is mandatory, will return a error in case one of them is missing)
+   * Output:
      ```
        User has been created!
      ```
@@ -137,9 +137,7 @@
      
   * ### Get Hotel Types
   * Method: GET
-  * Path: `api/hotels/countByCity?cities=Berlin,Madrid,London`
-  
-    ``` 
+  * Path: `api/hotels/countByCity?cities=Berlin,Madrid,London` 
    * Output:  
      ```
       [
