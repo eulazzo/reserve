@@ -266,4 +266,15 @@
      ```
        "Room deleted"
      ```
+* ### Add Date
+  * Method: PUT
+  * Path: `api/rooms/availability/62995221941e80ce6c37425f`
+  * input:
+    ```
+      {"dates":["2022-06-03T00:13:21.019Z","2022-06-03T00:13:21.019Z"]}
+    ```
+  * Output:  
+     ```
+      "updated Room"
+     ```
 
