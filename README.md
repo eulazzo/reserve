@@ -98,7 +98,7 @@
          }
      ```
    
-  * ### Create A Hotel
+* ### Create A Hotel
   * Method: POST
   * Path: `/api/hotels`
   * input:
@@ -135,10 +135,10 @@
      ```
      
      
-  * ### Get Hotel Types
+* ### Get Hotel Types
   * Method: GET
   * Path: `api/hotels/countByCity?cities=Berlin,Madrid,London` 
-   * Output:  
+  * Output:  
      ```
       [
         0,
@@ -147,7 +147,7 @@
       ]
      ```
      
-  * ### Create A Room
+* ### Create A Room
   * Method: POST
   * Path: `api/rooms/6297d8592e59530bc97e043f `
   * input:
@@ -187,3 +187,74 @@
        }
      ```
       
+* ### Get Hotel Rooms
+  * Method: POST
+  * Path: `api/hotels/room/6297d8592e59530bc97e043f`
+   * Output:  
+     ```
+       [
+           {
+            "_id": "62995221941e80ce6c37425e",
+            "title": "2 bed room 5 toilet",
+            "price": 69,
+            "maxPeople": 3,
+            "desc": "lorem Ipsulum",
+            "roomNumbers": [
+             {
+              "number": 102,
+              "unavailableDates": [
+               "2022-06-03T00:13:21.019Z",
+               "2022-06-03T00:13:21.019Z",
+               "2022-06-03T01:05:32.457Z",
+               "2022-06-03T00:13:21.019Z",
+               "2022-06-03T00:13:21.019Z"
+              ],
+              "_id": "62995221941e80ce6c37425f"
+             },
+             {
+              "unavailableDates": [
+               "2022-06-02T03:00:00.000Z",
+               "2022-06-03T03:00:00.000Z",
+               "2022-06-04T03:00:00.000Z",
+               "2022-06-05T03:00:00.000Z",
+               "2022-06-06T03:00:00.000Z",
+               "2022-06-07T03:00:00.000Z",
+               "2022-06-08T03:00:00.000Z",
+               "2022-06-09T03:00:00.000Z",
+               "2022-06-10T03:00:00.000Z",
+               "2022-06-03T01:05:32.457Z"
+              ],
+              "_id": "62995221941e80ce6c374260"
+             }
+            ],
+            "createdAt": "2022-06-03T00:13:21.019Z",
+            "updatedAt": "2022-08-05T17:07:43.633Z",
+            "__v": 0
+           },
+           {
+            "_id": "6299523d941e80ce6c374263",
+            "title": "3 bed room 3 toilet",
+            "price": 400,
+            "maxPeople": 3,
+            "desc": "lorem Ipsulum ",
+            "roomNumbers": [
+             {
+              "number": 102,
+              "unavailableDates": [
+               "2022-06-03T01:05:32.457Z"
+              ],
+              "_id": "6299523d941e80ce6c374264"
+             },
+             {
+              "unavailableDates": [
+               "2022-06-03T01:05:32.457Z"
+              ],
+              "_id": "6299523d941e80ce6c374265"
+             }
+            ],
+            "createdAt": "2022-06-03T00:13:49.806Z",
+            "updatedAt": "2022-06-03T01:05:50.818Z",
+            "__v": 0
+           }
+       ]
+     ```
