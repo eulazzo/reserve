@@ -279,4 +279,46 @@
      ```
       "updated Room"
      ```
+## Technologies
 
+<table>
+   
+  <thead>
+    <th>Back-end</th>
+    <th>Front-end</th>
+  </thead>
+   
+  <tbody>
+    <tr>
+      <td>Node.js</td>
+      <td>ReactJS</td>
+    </tr>
+     <tr>
+      <td>JWT</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ExpressJs</td>
+      <td>CSS & SCSS</td>
+    </tr>
+    <tr>
+      <td>Axios</td>
+      <td>Axios</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>React Hooks</td>
+    </tr>
+    <tr>
+      <td>Cors</td>
+      <td></td>
+    </tr>
+  </tbody>
+  
+</table>
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
+
+  
