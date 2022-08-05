@@ -188,7 +188,7 @@
      ```
       
 * ### Get Hotel Rooms
-  * Method: POST
+  * Method: GET
   * Path: `api/hotels/room/6297d8592e59530bc97e043f`
    * Output:  
      ```
@@ -258,3 +258,12 @@
            }
        ]
      ```
+    
+* ### Delete Room
+  * Method: DELETE
+  * Path: `api/rooms/6297bd02e23f8c503bb81b60/6296759fd404431013ddf68b`
+  * Output:  
+     ```
+       "Room deleted"
+     ```
+
