@@ -1,22 +1,15 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns } from "../../datatablesource";
-import { Link } from "react-router-dom";
-import { useState } from "react";
 import useFetch from "../../hooks/useFetch.js";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Datatable = ({ columns }) => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
 
-  const { data, loading, error } = useFetch(
-    path === "users" ? `/${path}/find` : path
-  );
-
-   
+  const { data } = useFetch(path === "users" ? `/${path}/find` : path);
 
   const [list, setList] = useState([]);
 

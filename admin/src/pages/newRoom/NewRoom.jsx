@@ -1,8 +1,6 @@
-
 import "./newRoom.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import { roomInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
@@ -10,14 +8,13 @@ import axios from "axios";
 
 const NewRoom = () => {
   const [info, setInfo] = useState({});
-  const [hotelId, setHotelId] = useState(undefined);
+  const [hotelId, setHotelId] = useState(null);
   const [rooms, setRooms] = useState([]);
 
   const { data, loading } = useFetch("/hotels");
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-  };
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -29,7 +26,6 @@ const NewRoom = () => {
     }
   };
 
-  console.log(info)
   return (
     <div className="new">
       <Sidebar />
@@ -69,7 +65,9 @@ const NewRoom = () => {
                     ? "loading"
                     : data &&
                       data.map((hotel) => (
-                        <option key={hotel._id} value={hotel._id}>{hotel.name}</option>
+                        <option key={hotel._id} value={hotel._id}>
+                          {hotel.name}
+                        </option>
                       ))}
                 </select>
               </div>

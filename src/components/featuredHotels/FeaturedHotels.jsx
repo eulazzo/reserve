@@ -2,8 +2,8 @@ import useFetch from "../../hooks/useFetch";
 import "./featuredHotels.css";
 
 const FeaturedHotels = () => {
-  const { data, loading, error } = useFetch("/hotels?featured=true&limit=4");
-   return (
+  const { data, loading } = useFetch("/hotels?featured=true&limit=4");
+  return (
     <div className="fh">
       {loading ? (
         "Loading"

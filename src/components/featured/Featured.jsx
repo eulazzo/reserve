@@ -5,8 +5,8 @@ import "./featured.css";
 const URL_ENDPOINT = "/hotels/countByCity?cities=Berlin,Madrid,London";
 
 const Featured = () => {
-  const { data, error, loading } = useFetch(URL_ENDPOINT);
-  
+  const { data, loading } = useFetch(URL_ENDPOINT);
+
   return (
     <div className="featured">
       {loading ? (

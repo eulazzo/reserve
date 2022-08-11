@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home, List, Hotel, Login } from "./pages";
 
 function App() {
-  // const { user } = useContext(AuthContext);
-
   return (
     <Router>
       <Routes>
