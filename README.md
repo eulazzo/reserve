@@ -32,7 +32,7 @@
 ![Implly CHAT GIF]( https://res.cloudinary.com/toppo/image/upload/v1659716814/uploads/aaaBokking_m53qkh.png)
 </br>
 
-## I did a video showing the project, u can check out <a href="https://www.youtube.com/watch?v=V8j7K7SpuIg">Here</a>
+## I did a video showing the project, u can check out <a href="https://www.youtube.com/watch?v=ky-F1hrpdSM">Here</a>
 
 ### About
   <p>
