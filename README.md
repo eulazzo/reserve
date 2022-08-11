@@ -34,6 +34,11 @@
 
 ## I did a video showing the project, u can check out <a href="https://www.youtube.com/watch?v=V8j7K7SpuIg">Here</a>
 
+### About
+  <p>
+   On the homepage, I fetched the data from MongoDB. You can choose hotels by city, date range and select some other options. When clicked on search all   related hotels are shown. You can also filter hotels by maximum and minimum price. On the page of the chosen hotel, there is information about it as well   as the total value according to the selected day range and number of rooms chosen. When clicking on "Reserve or book now" if the user is not logged in,     he will be directed to the login page. From there it will be possible to see the available room options and select it. If another user chooses the same     range of days and the same hotel as the previous user, this will show “room unavailable”.
+  </p>
+
  ## DOCUMENTATION 
 
 * Clone this repo with `git@github.com:eulazzo/reserve.git`;
