@@ -36,7 +36,7 @@
 
  ## DOCUMENTATION 
 
-* Clone this repo;
+* Clone this repo with `git@github.com:eulazzo/reserve.git`;
 * run `npm install` to add all depedencies;
 * Create an `.env` inside the `api` folder and fill in all the necessary keys:
   ```
